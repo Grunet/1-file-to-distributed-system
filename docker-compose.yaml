@@ -1,8 +1,8 @@
 version: "3.9"
 services:
   bastion:
-    image: ubuntu # TODO - need something with curl installed
-    tty: true # Keeps the container alive to be exec-ed into later
+    image: alpine/curl # Has a shell and curl installed
+    command: tail -f /dev/null # Keeps the container alive to be exec-ed into later
   orders:
     build: ./tmp/orders/
     ports:
