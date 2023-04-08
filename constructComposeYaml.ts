@@ -1,5 +1,5 @@
 import yaml from "npm:js-yaml";
-import { serviceMap } from "./index.ts";
+import { getServiceMap } from "./index.ts";
 
 // const output = yaml.dump({
 //   version: "3.9",
