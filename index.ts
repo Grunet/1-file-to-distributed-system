@@ -6,7 +6,7 @@ const serviceMap = {
       startup: "START_ORDER_SERVICE",
       hostname: "ORDER_SERVICE_HOSTNAME",
     },
-    port: 8000,
+    port: 8080,
   },
   inventory: {
     envVarNames: {
