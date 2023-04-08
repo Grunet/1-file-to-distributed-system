@@ -6,7 +6,7 @@ FROM denoland/deno:1.32.1
 EXPOSE ${port}
 WORKDIR /
 COPY . .
-CMD ["deno", "run", "--allow-net", ${entrypoint}]
+CMD ["deno", "run", "--allow-net", "${entrypoint}"]
 `;
 
 console.log(dockefileAsString);
