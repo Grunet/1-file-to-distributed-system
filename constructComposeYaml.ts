@@ -24,7 +24,7 @@ const output = yaml.dump({
     orders: {
       build: "./tmp/orders",
       ports: [
-        "8080:3000",
+        "3000:8080",
       ],
       environment: [
         "START_ORDER_SERVICE=true",
@@ -35,7 +35,7 @@ const output = yaml.dump({
     inventory: {
       build: "./tmp/inventory",
       ports: [
-        "8081:3001",
+        "3001:8081",
       ],
       environment: [
         "START_INVENTORY_SERVICE=true",
