@@ -33,8 +33,8 @@ if (Deno.env.get(serviceMap.orders.envVarNames.startup)) {
 const serviceMap = {
   orders: {
     envVarNames: {
-      startup: "START_ORDER_SERVICE",
-      hostname: "ORDER_SERVICE_HOSTNAME",
+      startup: "START_ORDERS_SERVICE",
+      hostname: "ORDERS_SERVICE_HOSTNAME",
     },
     port: 8080,
   },
