@@ -26,7 +26,7 @@ const inventoryHandler = (request: Request): Response => {
   return new Response(body, { status: 200 });
 };
 
-if (Deno.env.get(serviceMap.orders.envVarNames.startup)) {
+if (Deno.env.get(serviceMap.inventory.envVarNames.startup)) {
   await serve(inventoryHandler, { port: serviceMap.inventory.port });
 }
 
