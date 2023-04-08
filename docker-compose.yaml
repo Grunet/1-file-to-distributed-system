@@ -6,17 +6,17 @@ services:
   orders:
     build: ./tmp/orders/
     ports:
-      - "8080:3000"
+      - "8080:8080"
     environment:
       - START_ORDERS_SERVICE=true
-      - ORDERS_SERVICE_HOSTNAME=http://orders:3000/
-      - INVENTORY_SERVICE_HOSTNAME=http://inventory:3001/
+      - ORDERS_SERVICE_HOSTNAME=http://orders:8080/
+      - INVENTORY_SERVICE_HOSTNAME=http://inventory:8081/
     # network_mode: host
   inventory:
     build: ./tmp/inventory/
     ports:
-      - "8081:3001"
+      - "8081:8081"
     environment:
       - START_INVENTORY_SERVICE=true
-      - ORDERS_SERVICE_HOSTNAME=http://orders:3000/
-      - INVENTORY_SERVICE_HOSTNAME=http://inventory:3001/
+      - ORDERS_SERVICE_HOSTNAME=http://orders:8080/
+      - INVENTORY_SERVICE_HOSTNAME=http://inventory:8081/
