@@ -1,5 +1,8 @@
 version: "3.9"
 services:
+  bastion:
+    image: ubuntu # TODO - need something with curl installed
+    tty: true # Keeps the container alive to be exec-ed into later
   orders:
     build: ./tmp/orders/
     ports:
