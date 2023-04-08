@@ -1,4 +1,5 @@
 import yaml from "npm:js-yaml";
+import { serviceMap } from "./index.ts";
 
 // const output = yaml.dump({
 //   version: "3.9",
@@ -65,3 +66,5 @@ console.log(output);
 //       - START_INVENTORY_SERVICE=true
 //       - ORDER_SERVICE_HOSTNAME=http://orders:3000/
 //       - INVENTORY_SERVICE_HOSTNAME=http://inventory:3001/
+
+// TODO - construct the YAML dynamically for the service map info
