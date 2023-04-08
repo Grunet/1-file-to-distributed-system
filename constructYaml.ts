@@ -19,9 +19,11 @@ console.log(output);
 
 // version: "3.9"
 // services:
-//   web:
-//     build: .
+//   orders:
+//     build: ./tmp/orders/
 //     ports:
-//       - "8000:5000"
-//   redis:
-//     image: "redis:alpine"
+//       - "8080:3000"
+//   inventory:
+//     build: ./tmp/inventory/
+//     ports:
+//       - "8081:3001"
