@@ -32,6 +32,7 @@ if (Deno.env.get(serviceMap.inventory.envVarNames.startup)) {
 
 const serviceMap = {
   orders: {
+    entrypoint: true,
     envVarNames: {
       startup: "START_ORDERS_SERVICE",
       hostname: "ORDERS_SERVICE_HOSTNAME",

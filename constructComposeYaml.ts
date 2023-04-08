@@ -31,6 +31,7 @@ const output = yaml.dump({
         "ORDER_SERVICE_HOSTNAME=http://orders:3000/",
         "INVENTORY_SERVICE_HOSTNAME=http://inventory:3001/",
       ],
+      network_mode: "host",
     },
     inventory: {
       build: "./tmp/inventory",
@@ -58,6 +59,7 @@ console.log(output);
 //       - START_ORDER_SERVICE=true
 //       - ORDER_SERVICE_HOSTNAME=http://orders:3000/
 //       - INVENTORY_SERVICE_HOSTNAME=http://inventory:3001/
+//      network_mode: host
 //   inventory:
 //     build: ./tmp/inventory/
 //     ports:
