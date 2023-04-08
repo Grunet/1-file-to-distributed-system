@@ -6,16 +6,16 @@ const serviceMap = {
       startup: "START_ORDER_SERVICE",
       hostname: "ORDER_SERVICE_HOSTNAME",
     },
+    port: 8000,
   },
   inventory: {
     envVarNames: {
       startup: "START_INVENTORY_SERVICE",
       hostname: "INVENTORY_SERVICE_HOSTNAME",
     },
+    port: 8081,
   },
 };
-
-const ordersServicePort = 8080;
 
 const ordersHandler = async (request: Request): Promise<Response> => {
   await fetch(Deno.env.get(serviceMap.inventory.envVarNames.hostname) ?? "");
@@ -28,10 +28,8 @@ const ordersHandler = async (request: Request): Promise<Response> => {
 };
 
 if (Deno.env.get(serviceMap.orders.envVarNames.startup)) {
-  await serve(ordersHandler, { port: ordersServicePort });
+  await serve(ordersHandler, { port: serviceMap.orders.port });
 }
-
-const inventoryServicePort = 8081;
 
 const inventoryHandler = (request: Request): Response => {
   const body = `Your user-agent is:\n\n${
@@ -42,7 +40,7 @@ const inventoryHandler = (request: Request): Response => {
 };
 
 if (Deno.env.get(serviceMap.orders.envVarNames.startup)) {
-  await serve(inventoryHandler, { port: inventoryServicePort });
+  await serve(inventoryHandler, { port: serviceMap.inventory.port });
 }
 
 export { serviceMap };
