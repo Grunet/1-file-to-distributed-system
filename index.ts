@@ -1,5 +1,7 @@
 import { serve } from "https://deno.land/std@0.178.0/http/server.ts";
 
+// Orders service
+
 const ordersHandler = async (request: Request): Promise<Response> => {
   await fetch(Deno.env.get(serviceMap.inventory.envVarNames.hostname) ?? "");
 
@@ -13,6 +15,8 @@ const ordersHandler = async (request: Request): Promise<Response> => {
 if (Deno.env.get(serviceMap.orders.envVarNames.startup)) {
   await serve(ordersHandler, { port: serviceMap.orders.port });
 }
+
+// Inventory service
 
 const inventoryHandler = (request: Request): Response => {
   const body = `Your user-agent is:\n\n${
