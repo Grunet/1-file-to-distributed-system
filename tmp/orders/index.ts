@@ -4,7 +4,7 @@ import { serve } from "https://deno.land/std@0.178.0/http/server.ts";
 
 const ordersHandler = async (request: Request): Promise<Response> => {
   await fetch(
-    Deno.env.get(getServiceMap().inventory.envVarNames.hostname) ?? "",
+    Deno.env.get(getServiceMetadata().inventory.envVarNames.hostname) ?? "",
   );
 
   const body = `Your user-agent is:\n\n${
@@ -14,8 +14,8 @@ const ordersHandler = async (request: Request): Promise<Response> => {
   return new Response(body, { status: 200 });
 };
 
-if (Deno.env.get(getServiceMap().orders.envVarNames.startup)) {
-  await serve(ordersHandler, { port: getServiceMap().orders.port });
+if (Deno.env.get(getServiceMetadata().orders.envVarNames.startup)) {
+  await serve(ordersHandler, { port: getServiceMetadata().orders.port });
 }
 
 // Inventory service
@@ -28,11 +28,11 @@ const inventoryHandler = (request: Request): Response => {
   return new Response(body, { status: 200 });
 };
 
-if (Deno.env.get(getServiceMap().inventory.envVarNames.startup)) {
-  await serve(inventoryHandler, { port: getServiceMap().inventory.port });
+if (Deno.env.get(getServiceMetadata().inventory.envVarNames.startup)) {
+  await serve(inventoryHandler, { port: getServiceMetadata().inventory.port });
 }
 
-function getServiceMap() {
+function getServiceMetadata() {
   const serviceMap = {
     orders: {
       entrypoint: true,
@@ -54,4 +54,4 @@ function getServiceMap() {
   return serviceMap;
 }
 
-export { getServiceMap };
+export { getServiceMetadata };
